@@ -1,3 +1,4 @@
+import java.util.*;
 public class Quick {
   /*
   Choose a random pivot element between the start and end index inclusive,
@@ -10,7 +11,14 @@ public class Quick {
   *@return the index of the final position of the pivot element.
   */
   public static int partition (int[] data, int start, int end){
+    Random random = new Random();
+    int index = random.nextInt(end-start+1) + start;
+    int pivot = data[index];
+    for (int i = start; i < end; i++) {
+      if (data[i] < pivot) {
 
+      }
+    }
   }
 
   //return the value that is the kth smallest value of the array.
