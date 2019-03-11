@@ -1,5 +1,4 @@
 public class Quick {
-
   /*
   Choose a random pivot element between the start and end index inclusive,
   Then modify the array such that:
@@ -12,15 +11,11 @@ public class Quick {
   */
   public static int partition (int[] data, int start, int end){
 
+  }
 
+  //return the value that is the kth smallest value of the array.
+  public static int quickselect(int[] data, int k) {
 
- }
-
- /*return the value that is the kth smallest value of the array.
- */
- public static int quickselect(int []data, int k){
-
- }
-
+  }
 
 }
