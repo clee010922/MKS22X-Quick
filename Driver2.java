@@ -1,5 +1,5 @@
 import java.util.Random;
-public class Driver{
+public class Driver2{
 	public static void fillRandom(int[] data){
 	    Random r = new Random();
 	    int index = 0;
