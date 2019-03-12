@@ -52,4 +52,40 @@ public class Quick {
     return data[k]; //returns the k'th smallest value of the array
   }
 
+  public static int newPartition(int[] data, int start, int end) {
+    int lo = data[0];
+    int hi = data[data.length-1];
+    int mid = data[(data.length-1)/2];
+    int index = 0;
+    int pivot = 0;
+    if (lo > hi && lo < mid || lo > mid && lo < hi) {
+      index = 0;
+      pivot = lo;
+    }
+    else if (hi > lo && hi < mid || hi > mid && hi < lo) {
+      index = data.length-1;
+      pivot = hi;
+    }
+    else {
+      index = (data.length-1)/2;
+      pivot = mid;
+    }
+    swap(index, start, data);
+    int i = start+1;
+    int j = end;
+    while (i <= j) {
+      if (data[i] < pivot) {
+        swap(i, )
+      }
+    }
+
+
+
+
+
+
+
+
+
+
 }
