@@ -1,6 +1,6 @@
 import java.util.*;
 public class Quick {
-
+  /*
   public static int partition (int[] data, int start, int end){
     Random random = new Random();
     int index = random.nextInt(end-start+1) + start; //random index from start to end, inclusive
@@ -29,6 +29,7 @@ public class Quick {
     index = start; //new index of the pivot is the index of start after the while loop is over
     return index; //returns the index of the pivot
   }
+  */
 
   public static void swap(int index1, int index2, int[] data) {
     int temp = data[index1]; //assigns temp value
@@ -52,18 +53,19 @@ public class Quick {
     return data[k]; //returns the k'th smallest value of the array
   }
 
-  public static int newPartition(int[] data, int start, int end) {
-    int lo = data[0];
-    int hi = data[data.length-1];
+
+  public static int partition(int[] data, int start, int end) {
+    int lo = data[start];
+    int hi = data[end];
     int mid = data[(data.length-1)/2];
     int index = 0;
     int pivot = 0;
     if (lo > hi && lo < mid || lo > mid && lo < hi) {
-      index = 0;
+      index = start;
       pivot = lo;
     }
     else if (hi > lo && hi < mid || hi > mid && hi < lo) {
-      index = data.length-1;
+      index = end;
       pivot = hi;
     }
     else {
@@ -71,20 +73,27 @@ public class Quick {
       pivot = mid;
     }
     swap(index, start, data);
-    int i = start+1;
-    int j = end;
+    int i = lo+1;
+    int j = hi;
+    int temp = start+1;
     while (i <= j) {
       if (data[i] < pivot) {
-        swap(i, )
+        swap(i, temp, data);
+        temp++;
+        i++;
+      }
+      if (data[i] > pivot) {
+        swap(i, j, data);
+        j--;
+      }
+      if (data[i] == pivot) {
+        i++;
       }
     }
-
-
-
-
-
-
-
+    swap(index, i, data);
+    index = i;
+    return index;
+  }
 
 
 
