@@ -53,8 +53,9 @@ public class Quick {
     return data[k]; //returns the k'th smallest value of the array
   }
 
-
+  //improved partition
   public static int partition(int[] data, int start, int end) {
+    Random random = new Random();
     int lo = data[start];
     int hi = data[end];
     int mid = data[(data.length-1)/2];
@@ -88,13 +89,35 @@ public class Quick {
           j--;
         }
         else {
-          i++;
+          int rand = random.nextInt(100);
+          if (rand < 50) {
+            swap(i, j, data);
+            j--;
+          }
+          else i++;
         }
       }
     }
     swap(end, i, data);
     index = i;
     return index;
+  }
+
+  public static String printArray(int[] data) {
+    String result = "[";
+    for (int i = 0; i < data.length; i++) {
+      if (i != data.length - 1)
+        result += data[i] + ", ";
+      else result += data[i] + "]";
+    }
+    return result;
+  }
+
+  public static void main (String[] args) {
+    int[] quick = {200, 10, 200, 200, 200, 10, 10, 10, 10, 10, 10, 10, 10};
+    int i = Quick.partition(quick, 0, 12);
+    System.out.println(i);
+    System.out.println(printArray(quick));
   }
 
 
