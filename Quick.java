@@ -1,6 +1,7 @@
 import java.util.*;
 public class Quick {
 
+  /*
   public static int partition (int[] data, int start, int end){
     Random random = new Random();
     int index = random.nextInt(end-start+1) + start; //random index from start to end, inclusive
@@ -26,6 +27,7 @@ public class Quick {
     index = start; //new index of the pivot is the index of start after the while loop is over
     return index; //returns the index of the pivot
   }
+  */
 
 
   public static void swap(int index1, int index2, int[] data) {
@@ -50,13 +52,13 @@ public class Quick {
     return data[k]; //returns the k'th smallest value of the array
   }
 
-  /*
+
   //improved partition
   public static int partition(int[] data, int start, int end) {
     Random random = new Random();
     int lo = data[start];
     int hi = data[end];
-    int mid = data[(data.length-1)/2];
+    int mid = data[(start+end)/2];
     int index = 0;
     int pivot = 0;
     if (lo > hi && lo < mid || lo > mid && lo < hi) {
@@ -68,7 +70,7 @@ public class Quick {
       pivot = hi;
     }
     else {
-      index = (data.length-1)/2;
+      index = (start+end)/2;
       pivot = mid;
     }
     swap(index, end, data);
@@ -98,7 +100,7 @@ public class Quick {
     index = i;
     return index;
   }
-  */
+
 
   public static String printArray(int[] data) {
     String result = "[";
