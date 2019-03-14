@@ -60,6 +60,7 @@ public class Quick {
     int mid = data[(data.length-1)/2];
     int index = 0;
     int pivot = 0;
+    int temp = start;
     if (lo > hi && lo < mid || lo > mid && lo < hi) {
       index = start;
       pivot = lo;
@@ -72,25 +73,26 @@ public class Quick {
       index = (data.length-1)/2;
       pivot = mid;
     }
-    swap(index, start, data);
-    int i = lo+1;
-    int j = hi;
-    int temp = start+1;
+    swap(index, end, data);
+    int i = start;
+    int j = end-1;
     while (i <= j) {
       if (data[i] < pivot) {
-        swap(i, temp, data);
+        swap(temp, i, data);
+        i++;
         temp++;
-        i++;
       }
-      if (data[i] > pivot) {
-        swap(i, j, data);
-        j--;
-      }
-      if (data[i] == pivot) {
-        i++;
+      else {
+        if (data[i] > pivot) {
+          swap(i, j, data);
+          j--;
+        }
+        else {
+          i++;
+        }
       }
     }
-    swap(index, i, data);
+    swap(end, i, data);
     index = i;
     return index;
   }
