@@ -75,6 +75,7 @@ public class Quick {
       pivot = mid;
     }
     swap(index, end, data);
+    index = end;
     int i = start;
     int j = end-1;
     while (i <= j) {
