@@ -115,10 +115,19 @@ public class Quick {
   }
 
   public static void main (String[] args) {
-    int[] quick = {200, 10, 200, 200, 200, 10, 10, 10, 10, 10, 10, 10, 10};
+    int[] quick = {200, 10, 200, 200, 200, 10, 10, 10, 1, 1, 1, 2, 2, 4, 4};
     int i = Quick.partition(quick, 0, 12);
     System.out.println(i);
     System.out.println(printArray(quick));
+
+  }
+
+  public void quicksort(int[] data, int lo, int hi) {
+    if (lo >= hi)
+      return;
+    int pivotIndex = partition(data, lo, hi);
+    quicksort(data, lo, pivotIndex-1);
+    quicksort(data, pivotIndex-1, hi);
   }
 
 
