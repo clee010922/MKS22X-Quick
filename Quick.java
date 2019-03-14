@@ -1,6 +1,6 @@
 import java.util.*;
 public class Quick {
-  /*
+
   public static int partition (int[] data, int start, int end){
     Random random = new Random();
     int index = random.nextInt(end-start+1) + start; //random index from start to end, inclusive
@@ -29,7 +29,7 @@ public class Quick {
     index = start; //new index of the pivot is the index of start after the while loop is over
     return index; //returns the index of the pivot
   }
-  */
+
 
   public static void swap(int index1, int index2, int[] data) {
     int temp = data[index1]; //assigns temp value
@@ -53,6 +53,7 @@ public class Quick {
     return data[k]; //returns the k'th smallest value of the array
   }
 
+  /*
   //improved partition
   public static int partition(int[] data, int start, int end) {
     Random random = new Random();
@@ -61,7 +62,6 @@ public class Quick {
     int mid = data[(data.length-1)/2];
     int index = 0;
     int pivot = 0;
-    int temp = start;
     if (lo > hi && lo < mid || lo > mid && lo < hi) {
       index = start;
       pivot = lo;
@@ -80,9 +80,7 @@ public class Quick {
     int j = end-1;
     while (i <= j) {
       if (data[i] < pivot) {
-        swap(temp, i, data);
         i++;
-        temp++;
       }
       else {
         if (data[i] > pivot) {
@@ -103,6 +101,7 @@ public class Quick {
     index = i;
     return index;
   }
+  */
 
   public static String printArray(int[] data) {
     String result = "[";
@@ -115,19 +114,20 @@ public class Quick {
   }
 
   public static void main (String[] args) {
-    int[] quick = {200, 10, 200, 200, 200, 10, 10, 10, 1, 1, 1, 2, 2, 4, 4};
-    int i = Quick.partition(quick, 0, 12);
-    System.out.println(i);
+    int[] quick = {100, 1519438594, -2342342, 4, 4, 3, 3, 2, 2, 1, 1};
+    //int i = Quick.partition(quick, 0, 12);
+    //System.out.println(i);
+    //System.out.println(printArray(quick));
+    quicksort(quick, 0, 10);
     System.out.println(printArray(quick));
-
   }
 
-  public void quicksort(int[] data, int lo, int hi) {
-    if (lo >= hi)
-      return;
-    int pivotIndex = partition(data, lo, hi);
-    quicksort(data, lo, pivotIndex-1);
-    quicksort(data, pivotIndex-1, hi);
+  public static void quicksort(int[] data, int lo, int hi) {
+    if (lo < hi) {
+      int pivotIndex = partition(data, lo, hi);
+      quicksort(data, lo, pivotIndex-1);
+      quicksort(data, pivotIndex+1, hi);
+    }
   }
 
 
