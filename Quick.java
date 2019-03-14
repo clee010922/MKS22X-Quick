@@ -5,7 +5,6 @@ public class Quick {
     Random random = new Random();
     int index = random.nextInt(end-start+1) + start; //random index from start to end, inclusive
     int pivot = data[index]; //sets the pivot value of the data
-    int temp = start; //a counter variable
     swap(index, end, data); //moves the pivot value to the back of the array
     index = end; //now, the index of the pivot value is the end of the array
     end--; //decrease the end by 1 because we won't be looking at the last value of the array, which is the pivot
@@ -15,9 +14,7 @@ public class Quick {
       }
       else {
         if (data[start] < pivot) { //if current value is < pivot
-          swap(start, temp, data); //swap current value and value at temp counter index
           start++; //increment
-          temp++; //increment
         }
         else {
           swap(start, end, data); //if current value is > pivot
