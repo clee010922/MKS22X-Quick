@@ -136,6 +136,59 @@ public class Quick {
     }
   }
 
+  private int[] partitionDutch(int[] data, int start, int end) {
+    Random random = new Random();
+    int lo = data[start];
+    int hi = data[end];
+    int mid = data[(start+end)/2];
+    int index = 0;
+    int pivot = 0;
+    if (lo > hi && lo < mid || lo > mid && lo < hi) {
+      index = start;
+      pivot = lo;
+    }
+    else if (hi > lo && hi < mid || hi > mid && hi < lo) {
+      index = end;
+      pivot = hi;
+    }
+    else {
+      index = (start+end)/2;
+      pivot = mid;
+    }
+    swap(index, end, data);
+    index = end;
+    int i = start;
+    int j = end-1;
+    int m = start+1;
+    while (i <= j) {
+      if (data[i] < pivot) {
+        i++;
+        m++;
+      }
+      else {
+        if (data[i] > pivot) {
+          swap(i, j, data);
+          j--;
+        }
+        else {
+          swap(i, m, data);
+          m++;
+        }
+      }
+    }
+    swap(end, i, data);
+    int[] result = new int[2];
+    result[0] = i;
+    result[1] = j;
+    return result;
+  }
+
+
+
+
+
+
+
   public static void main(String[]args){
     System.out.println("Size\t\tMax Value\tquick/builtin ratio ");
     int[]MAX_LIST = {1000000000,500,10};
