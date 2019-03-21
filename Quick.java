@@ -127,6 +127,17 @@ public class Quick {
     quicksort(data, 0, data.length-1);
   }
 
+  public static void insertionsort(int[] data, int lo, int hi) {
+    int temp = 0;
+    for (int i = lo+1; i < hi+1; i++) {
+      temp = data[i];
+      while (i > lo && temp < data[i-1]) {
+        data[i] = data[i-1];
+        i--;
+      }
+      data[i] = temp;
+    }
+  }
 
   public static void quicksort(int[] data, int lo, int hi) {
     if (lo < hi) {
