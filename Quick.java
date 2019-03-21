@@ -141,7 +141,7 @@ public class Quick {
 
   public static void quicksort(int[] data, int lo, int hi) {
     if (lo < hi) {
-      if (hi-lo <= 10) {
+      if (hi-lo <= 40) {
         insertionsort(data, lo, hi);
       }
       else {
