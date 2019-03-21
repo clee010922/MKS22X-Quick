@@ -63,6 +63,7 @@ public class Driver{
     Arrays.sort(result);
 
     long startTime = System.currentTimeMillis();
+    Quick.quicksort(start);
     /*
      * Test your sort here //yoursort(start);
      * Add code to switch which sort is tested by changing one of the args!
