@@ -141,9 +141,14 @@ public class Quick {
 
   public static void quicksort(int[] data, int lo, int hi) {
     if (lo < hi) {
-      int pivotIndex = partition(data, lo, hi);
-      quicksort(data, lo, pivotIndex-1);
-      quicksort(data, pivotIndex+1, hi);
+      if (hi-lo <= 10) {
+        insertionsort(data, lo, hi);
+      }
+      else {
+        int pivotIndex = partition(data, lo, hi);
+        quicksort(data, lo, pivotIndex-1);
+        quicksort(data, pivotIndex+1, hi);
+      }
     }
   }
 
